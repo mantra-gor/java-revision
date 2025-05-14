@@ -1,6 +1,6 @@
 # 🧱 Object-Oriented Programming in Java
 
-## 📌 1. Class and Object
+## 📌 Class and Object
 
 ### ▶ TL;DR:
 
@@ -22,7 +22,7 @@ myCar.color = "Red";
 myCar.drive();
 ```
 
-## 📌 2. Constructors
+## 📌 Constructors
 
 ### ▶ TL;DR:
 
@@ -50,54 +50,6 @@ class Student {
   }
 }
 Student s1 = new Student("Alice");
-```
-
-## ♻️ 3. Method Overloading
-
-### ▶ TL;DR:
-
-- Same method name, different parameters.
-
-- Happens within the same class.
-
-### ▶ Syntax:
-
-```java
-class MathOps {
-  int add(int a, int b) {
-    return a + b;
-  }
-
-  double add(double a, double b) {
-    return a + b;
-  }
-}
-```
-
-## 📌 4. The this Keyword
-
-### ▶ TL;DR:
-
-- Refers to current object instance.
-
-- Used to disambiguate between instance variables and parameters.
-
-### ▶ Common Use Cases:
-
-- Inside constructors or setters
-
-- For method chaining
-
-### ▶ Syntax:
-
-```java
-class Employee {
-  String name;
-
-  Employee(String name) {
-    this.name = name; // 'this' refers to the instance variable
-  }
-}
 ```
 
 ## 🧱 Four Main Pillars of OOPS
