@@ -52,6 +52,51 @@ class Student {
 Student s1 = new Student("Alice");
 ```
 
+## 📦 Java Packages
+
+A package is simply a container that groups related types (Java classes, interfaces, enumerations and annotations).
+
+It helps in:
+
+- **Avoiding name conflicts**
+- **Making code modular**
+- **Providing access protection**
+- **Easier code maintenance**
+
+---
+
+### ▶️ Types of Packages
+
+1. **Built-in Packages** – Provided by Java (e.g., `java.util`, `java.io`, `java.lang`)
+2. **User-defined Packages** – Created by programmers to organize classes as per project needs.
+
+---
+
+### 🧪 Example: Creating a Package
+
+```java
+// File: MyClass.java
+package mypackage;  // declaring the package
+
+public class MyClass {
+    public void display() {
+        System.out.println("Hello from MyClass inside mypackage!");
+    }
+}
+```
+
+```java
+// File: Main.java
+import mypackage.MyClass;  // importing the user-defined package
+
+public class Main {
+    public static void main(String[] args) {
+        MyClass obj = new MyClass();
+        obj.display();
+    }
+}
+```
+
 ## 🧱 Four Main Pillars of OOPS
 
 - 🔍 **Abstraction**
@@ -64,6 +109,51 @@ Student s1 = new Student("Alice");
 ---
 
 - Abstraction is a process of hiding implementation details and exposing only the functionality to the user. In abstraction, we deal with ideas and not events. This means the user will only know “what it does” rather than “how it does”.
+
+#### 💡 Why Abstraction?
+
+- Reduces complexity
+- Increases code readability
+- Enhances maintainability
+- Improves security by hiding sensitive logic
+
+---
+
+#### ▶️ Real-world Example
+
+> **TV Remote:**  
+> You use the buttons to control a TV (what it does), but you don't need to know the internal circuitry (how it works).
+
+---
+
+### 🛠️ How to Achieve Abstraction in Java
+
+Java provides two ways to achieve abstraction:
+
+| Method             | Abstraction Level  |
+|--------------------|--------------------|
+| **Abstract Class** | Partial            |
+| **Interface**      | Full               |
+
+---
+
+### 🔹 Using Abstract Class
+
+```java
+abstract class Animal {
+    abstract void sound();  // abstract method
+
+    void sleep() {
+        System.out.println("Sleeping...");
+    }
+}
+
+class Dog extends Animal {
+    void sound() {
+        System.out.println("Barks");
+    }
+}
+```
 
 ### 🛡️ **Encapsulation**
 
@@ -78,6 +168,62 @@ Student s1 = new Student("Alice");
 ---
 
 - Inheritance is the process of one class inheriting properties and methods from another class in Java. Inheritance is used when we have is-a relationship between objects.  Inheritance in Java is implemented using extends keyword.
+  
+#### Types of Inheritance in Java
+
+- Single Inheritance
+- Multilevel Inheritance
+- Hierarchical Inheritance
+- Multiple Inheritance
+- Hybrid Inheritance
+
+#### Key Concept:
+
+- A subclass can access public and protected members of the superclass.
+- Java supports single inheritance (a class can inherit from one class only).
+- For multiple inheritance (by functionality), Java uses interfaces.
+- Constructors are not inherited.
+- Private members of the superclass are not accessible directly in the subclass.
+
+### ▶️ Syntax:
+
+```java
+class Parent {
+    void display() {
+        System.out.println("This is the parent class");
+    }
+}
+
+class Child extends Parent {
+    void show() {
+        System.out.println("This is the child class");
+    }
+}
+```
+
+### Example:
+
+```java
+class Animal {
+    void sound() {
+        System.out.println("Animal makes a sound");
+    }
+}
+
+class Dog extends Animal {
+    void breed() {
+        System.out.println("This is a Labrador");
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        Dog d = new Dog();
+        d.sound();  // Inherited method
+        d.breed();  // Child class method
+    }
+}
+```
 
 ### 🎭 **Polymorphism**
 
@@ -149,3 +295,95 @@ Student s1 = new Student("Alice");
       }
   }
   ```
+
+### 📘 Interface in Java
+
+---
+
+An **interface** in Java is a blueprint of a class. It is used to achieve **100% abstraction** (before Java 8) and to define a **contract** that implementing classes must follow.
+
+---
+
+#### 🔹 Key Points
+
+- Interfaces contain **abstract methods** (by default, `public` and `abstract`).
+- Variables declared in an interface are **implicitly**:
+  - `public`
+  - `static`
+  - `final`
+- From Java 8 onward, interfaces can also contain:
+  - `default` methods (with body)
+  - `static` methods
+- From Java 9, they can also have `private` methods.
+- A class **implements** an interface using the `implements` keyword.
+- A class can **implement multiple interfaces**, enabling **multiple inheritance**.
+
+---
+
+#### 🧱 Syntax
+
+```java
+interface Animal {
+    int legs = 4;  // implicitly public static final
+    void sound();  // abstract method
+}
+```
+
+#### 🚀 Default and Static Methods (Java 8+)
+
+```java
+interface Vehicle {
+    void start();
+
+    default void fuelType() {
+        System.out.println("Petrol");
+    }
+
+    static void wheels() {
+        System.out.println("Usually 4 wheels");
+    }
+}
+
+class Car implements Vehicle {
+    public void start() {
+        System.out.println("Car starting...");
+    }
+}
+
+// USAGE:
+Car c = new Car();
+c.fuelType();          // default method
+Vehicle.wheels();      // static method
+```
+
+#### 🧩 Multiple Inheritance with Interfaces
+
+```java
+interface A {
+    void methodA();
+}
+
+interface B {
+    void methodB();
+}
+
+class C implements A, B {
+    public void methodA() {
+        System.out.println("From A");
+    }
+
+    public void methodB() {
+        System.out.println("From B");
+    }
+}
+```
+
+✅ No ambiguity like in multiple class inheritance
+
+| Feature              | Interface                         |
+| -------------------- | ----------------------------------|
+| Inheritance          | `implements` keyword              |
+| Methods              | Abstract, default, static         |
+| Fields               | `public static final` by default  |
+| Multiple Inheritance | ✅ Supported                      |
+| Constructors         | ❌ Not allowed                    |

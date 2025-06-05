@@ -256,3 +256,95 @@ class AdvancedMath extends MathConstants {}
 - Final classes cannot be extended, useful for security and performance.
 
 #### ✅ Best Practice: Use final to protect values, methods, or classes from unwanted modification or extension.
+
+## 🔐 Access Modifiers Table
+
+| Modifier    | Same Class | Same Package | Same Package Non Subclass | Subclass | Other Packages |
+|-------------|------------|--------------|---------------------------|----------|----------------|
+| `public`    | ✅         | ✅           | ✅                        | ✅       | ✅             |
+| `protected` | ✅         | ✅           | ✅                        | ✅       | ❌             |
+| _(default)_ | ✅         | ✅           | ✅                        | ❌       | ❌             |
+| `private`   | ✅         | ❌           | ❌                        | ❌       | ❌             |
+
+---
+
+### ⚙️ `static` Keyword in Java
+
+---
+
+The `static` keyword in Java is used for memory management. It can be applied to:
+- **Variables**
+- **Methods**
+- **Blocks**
+- **Nested Classes**
+
+It means the member belongs to the **class** rather than any instance (object) of the class.
+
+---
+
+### ▶️ Static Variable
+
+- Shared among all instances of a class.
+- Initialized only once when the class is loaded.
+
+```java
+class Demo {
+    static int count = 0;  // static variable
+
+    Demo() {
+        count++;
+        System.out.println(count);
+    }
+}
+```
+
+### ▶️ Static Method
+
+- Can be called without creating an object.
+- Cannot access non-static members directly.
+- Commonly used for utility or helper methods (e.g., Math.pow()).
+
+```java
+class Utility {
+    static void greet() {
+        System.out.println("Hello from static method!");
+    }
+}
+```
+
+### ▶️ Static Block
+
+
+- Used for static initialization of a class.
+- Executes once when the class is loaded.
+
+```java
+class StaticBlockExample {
+    static {
+        System.out.println("Static block executed before main()");
+    }
+
+    public static void main(String[] args) {
+        System.out.println("Main method");
+    }
+}
+```
+
+### ▶️ Static Class (Nested)
+
+- Can only be a nested class (i.e., a class inside another class).
+- Doesn't require a reference to the outer class.
+
+```java
+class Outer {
+    static class Inner {
+        void show() {
+            System.out.println("Static nested class");
+        }
+    }
+}
+
+// USAGE: 
+Outer.Inner obj = new Outer.Inner();
+obj.show();
+```
