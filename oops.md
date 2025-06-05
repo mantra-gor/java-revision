@@ -185,7 +185,7 @@ class Dog extends Animal {
 - Constructors are not inherited.
 - Private members of the superclass are not accessible directly in the subclass.
 
-### ▶️ Syntax:
+### ▶ Syntax:
 
 ```java
 class Parent {
@@ -296,15 +296,15 @@ public class Main {
   }
   ```
 
-### 📘 Interface in Java
-
 ---
+
+## 📘 Interface in Java
 
 An **interface** in Java is a blueprint of a class. It is used to achieve **100% abstraction** (before Java 8) and to define a **contract** that implementing classes must follow.
 
 ---
 
-#### 🔹 Key Points
+### 🔹 Key Points
 
 - Interfaces contain **abstract methods** (by default, `public` and `abstract`).
 - Variables declared in an interface are **implicitly**:
@@ -320,7 +320,7 @@ An **interface** in Java is a blueprint of a class. It is used to achieve **100%
 
 ---
 
-#### 🧱 Syntax
+### ▶ Syntax:
 
 ```java
 interface Animal {
@@ -329,7 +329,7 @@ interface Animal {
 }
 ```
 
-#### 🚀 Default and Static Methods (Java 8+)
+### 🚀 Default and Static Methods (Java 8+)
 
 ```java
 interface Vehicle {
@@ -356,7 +356,7 @@ c.fuelType();          // default method
 Vehicle.wheels();      // static method
 ```
 
-#### 🧩 Multiple Inheritance with Interfaces
+### 🧩 Multiple Inheritance with Interfaces
 
 ```java
 interface A {
@@ -387,3 +387,132 @@ class C implements A, B {
 | Fields               | `public static final` by default  |
 | Multiple Inheritance | ✅ Supported                      |
 | Constructors         | ❌ Not allowed                    |
+
+---
+
+## 🧩 Inner Classes & Nested Static Classes in Java
+
+Java allows you to define a class within another class. These are called **nested classes**, and they help group logically related code and improve encapsulation.
+
+There are two main types:
+
+- **Non-static Inner Class**
+- **Static Nested Class**
+
+---
+
+### 🔹 Non-static Inner Class
+
+A non-static inner class is associated with an instance of the outer class and can access all members (including private) of the outer class.
+
+### 🔹 Key Points:
+
+- Can access all members of the outer class.
+- Requires an instance of the outer class to be created.
+- Often used when the inner class logically belongs to the outer class.
+
+### ▶ Syntax:
+
+```java
+class Outer {
+    int outerVar = 10;
+
+    class Inner {
+        void show() {
+            System.out.println("Outer var is: " + outerVar);
+        }
+    }
+}
+
+// USAGE:
+Outer outer = new Outer();
+Outer.Inner inner = outer.new Inner(); //OR
+Outer.Inner inner = new Outer.new Inner();
+inner.show();
+```
+
+### 🔸 Static Nested Class
+
+A static nested class does not need an instance of the outer class to be created. It can only access static members of the outer class directly.
+
+### ▶ Syntax:
+
+```java
+class Outer {
+    static int staticVar = 42;
+
+    static class StaticInner {
+        void display() {
+            System.out.println("Static var: " + staticVar);
+        }
+    }
+}
+// USAGE:
+Outer.StaticInner inner = new Outer.StaticInner();
+inner.display();
+```
+
+| Feature                 | Inner Class           | Static Nested Class  |
+| ----------------------- | --------------------- | -------------------- |
+| Access outer class      | All members           | Only static members  |
+| Requires outer instance | ✅ Yes                 | ❌ No               |
+| Use case                | Tight object relation | Helper/utility logic |
+
+---
+
+## 🕵️ Anonymous Class in Java
+
+An **anonymous class** is a class **without a name**. It is used to **instantiate a class and override methods on the fly**, typically for **one-time use**.
+
+Anonymous classes are most commonly used when:
+
+- You need to create a **subclass** of an existing class or implement an **interface**.
+- The implementation is short and only needed once.
+
+---
+
+### 🔹 Key Characteristics
+
+- Declared and instantiated **in a single expression**.
+- Cannot have a constructor.
+- Useful for quick, short-lived use cases like event handling or callbacks.
+
+---
+
+### ✅ Example 1: Anonymous Class Extending a Class
+
+```java
+abstract class Animal {
+    abstract void makeSound();
+}
+
+public class Main {
+    public static void main(String[] args) {
+        Animal dog = new Animal() {
+            void makeSound() {
+                System.out.println("Woof Woof!");
+            }
+        };
+        dog.makeSound();
+    }
+}
+```
+
+### ✅ Example 2: Anonymous Class Implementing an Interface
+
+```java
+interface Greeting {
+    void sayHello();
+}
+
+public class Main {
+    public static void main(String[] args) {
+        Greeting g = new Greeting() {
+            public void sayHello() {
+                System.out.println("Hello there!");
+            }
+        };
+        g.sayHello();
+    }
+}
+```
