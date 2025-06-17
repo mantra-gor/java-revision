@@ -516,3 +516,15 @@ public class Main {
     }
 }
 ```
+
+### ✅ When to Use:
+
+- In GUI applications (e.g., button click listeners)
+- With functional interfaces before Java 8 (before lambdas)
+- For quick implementations of abstract methods
+
+### ⚠️ Limitations:
+
+- Cannot define a constructor
+- Cannot be reused
+- Harder to debug for complex logic
