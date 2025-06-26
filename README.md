@@ -8,7 +8,7 @@ This repo is structured for **quick revision**, **interview prep**, and **concep
 - [Basic Concepts](./basics.md)
 - [OOP Concepts](./oops.md)
 - [Java Keywords](./keywords.md)
-- [Collections Framework](./collections.md)
+- [Collections Framework](./collections/collections.md)
 - [Exception Handling](./exceptions.md)
 <!-- - [File Handling](./file-handling.md) -->
 <!-- - [Multithreading](./threads.md) -->

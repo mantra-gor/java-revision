@@ -97,3 +97,69 @@ public static void printNumbers(List<? extends Number> list) {
     }
 }
 ```
+
+## Collections
+
+### 📦 What is a Collection?
+
+- A **Collection** is an object that **groups multiple elements** into a single unit.
+- It is used to **store, retrieve, manipulate, and communicate** data efficiently.
+- Java provides a **standard set of interfaces and classes** for collections in the `java.util` package.
+
+### 🔧 What is the Collections Framework?
+
+- The **Collections Framework** is a **unified architecture** for representing and manipulating collections.
+- It includes:
+  - **Interfaces** (like `List`, `Set`, `Queue`, `Map`)
+  - **Implementations** (like `ArrayList`, `HashSet`, `LinkedList`, `HashMap`, etc.)
+  - **Algorithms** (like `sort`, `shuffle`, `reverse` from `Collections` utility class)
+
+### 🧩 Key Interfaces in Collections Framework
+
+| Interface  | Description |
+|------------|-------------|
+| `Collection` | Root interface for most collection classes |
+| `List`     | Ordered collection, allows duplicates |
+| `Set`      | Unordered collection, does not allow duplicates |
+| `Queue`    | Designed for holding elements prior to processing |
+| `Deque`    | Double-ended queue |
+| `Map`      | Key-value pairs, no duplicate keys |
+
+### 🛠️ Common Implementations
+
+| Interface | Implementations |
+|-----------|-----------------|
+| `List`    | `ArrayList`, `LinkedList`, `Vector`, `Stack` |
+| `Set`     | `HashSet`, `LinkedHashSet`, `TreeSet` |
+| `Queue`   | `PriorityQueue`, `ArrayDeque` |
+| `Map`     | `HashMap`, `TreeMap`, `LinkedHashMap`, `Hashtable` |
+
+### 📌 Collections vs Collection
+
+| Term         | Meaning |
+|--------------|--------|
+| `Collection` | Root interface for all collection types |
+| `Collections` | A utility class with static methods to operate on collections (like sort, reverse, etc.) |
+
+### 🔄 Common Methods in Collections Utility Class
+
+```java
+Collections.sort(list);
+Collections.reverse(list);
+Collections.shuffle(list);
+Collections.max(list);
+Collections.min(list);
+```
+
+## ✅ Benefits of Java Collections Framework
+
+- Reduces programming effort
+- Increases performance
+- Provides interoperability between unrelated APIs
+- Promotes reusability and consistency
+
+## Explore the core interfaces of the Java Collections Framework:
+
+- [List Interface](./list.md)
+- [Queue Interface](./queue.md)
+- [Sets Interface](./sets.md)
